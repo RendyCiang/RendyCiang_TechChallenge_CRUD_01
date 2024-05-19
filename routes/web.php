@@ -3,14 +3,13 @@
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('ViewProduct');
-});
+Route::get('/', [ProductController::class, 'ShowProductPage']);
 
 
 //Product Page
 Route::get('/product',[ProductController::class, 'ShowProductPage']);
 Route::get('/add-product', [ProductController::class, 'ShowAddProductPage']);
+
 //Post Product To Home Page
 Route::post('/add-product1',[ProductController::class,'AddProduct']);
 Route::get('/edit-product/{id}', [ProductController::class, 'EditProduct']);
